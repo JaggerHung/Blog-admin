@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170819043429) do
+ActiveRecord::Schema.define(version: 20170822114556) do
 
   create_table "comments", force: :cascade do |t|
     t.text "message"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20170819043429) do
     t.integer "visitor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "status", default: false, null: false
     t.index ["visitor_id"], name: "index_messages_on_visitor_id"
   end
 
@@ -82,7 +83,7 @@ ActiveRecord::Schema.define(version: 20170819043429) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "vistors", force: :cascade do |t|
+  create_table "visitors", force: :cascade do |t|
     t.string "fullname"
     t.string "email"
     t.datetime "created_at", null: false

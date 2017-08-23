@@ -1,6 +1,6 @@
-class CreateVistors < ActiveRecord::Migration[5.1]
+class CreateVisitors < ActiveRecord::Migration[5.1]
   def change
-    create_table :vistors do |t|
+    create_table :visitors do |t|
       t.string :fullname
       t.string :email
 
