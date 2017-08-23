@@ -6,4 +6,12 @@ module ApplicationHelper
       falsey
     end
   end
+
+  def time_ago time
+    "#{time_ago_in_words(time)} ago"
+  end
+
+  def double_digit_number number
+    '%02d' % number
+  end
 end

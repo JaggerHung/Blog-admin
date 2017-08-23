@@ -1,0 +1,23 @@
+<h1>Admin::Notifications#index</h1>
+
+<%=
+  if Notification.any?
+    link_to 'Dismiss all', dismiss_all_notificaitons_path, method: :delete, data: {confirm: 'Are you sure?'}
+  end
+%>
+
+<% @visitor_notifications.each do |v| %>
+  <p>
+    <%= "#{v.notifiable.fullname} added as a new visitor #{time_ago_in_words(v.created_at)} ago" %>
+    <%= link_to 'Dismiss', admin_notification_path(v), method: :delete, data: {confirm: 'Are you sure?'} %>
+  </p>
+<% end %>
+
+<hr>
+
+<% @comment_notifications.each do |v| %>
+  <p>
+    <%= "#{v.notifiable.visitor.fullname} added as comment #{time_ago_in_words(v.created_at)} ago" %>
+    <%= link_to 'Dismiss', admin_notification_path(v), method: :delete, data: {confirm: 'Are you sure?'} %>
+  </p>
+<% end %>
