@@ -10,9 +10,15 @@ class Admin::CommentsController < Admin::ApplicationController
   def update
     @comment = Comment.find(params[:id])
     if @comment.update(status: params[:status])
+<<<<<<< HEAD
       redirect_back(fallback_location: (request.referer || root_path), notice: 'Successfully updated comment')
     else
       redirect_back(fallback_location: (request.referer || root_path), notice: 'There was a problem updating comment')
+=======
+      redirect_to admin_comments_path(status: params[:status]), notice: 'Successfully updated comment'
+    else
+      redirect_to admin_comments_path(status: params[:status]),  notice:'There was a problem updating comment'
+>>>>>>> 2669f3179228394ca7f6d327d06f62ebb82ae199
     end
   end
 
